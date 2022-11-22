@@ -12,7 +12,10 @@ def is_prime(num):
 
 def cal_prime(start,end):
     prime_list = []
-    for i in range(start,end):
+    for i in range(start,end+1):
         if is_prime(i):
             prime_list.append(i)
     return prime_list
+
+# lst = cal_prime(10,37)
+# print(lst)

@@ -9,4 +9,5 @@ else:
         frame = cv2.imread(image)
         cv2.imshow("Output", frame)
         if cv2.waitKey(100) & 0xFF == ord('q'):
+            print("The loop is got break")
             break

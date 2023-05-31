@@ -113,5 +113,3 @@ plt.imshow(image)
 #  computing the average value of pixels across channels
 image = image.mean(axis=2)
 plt.imshow(image)
-
-

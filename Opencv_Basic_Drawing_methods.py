@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 # Drawing Circle
-img = cv2.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png")
+img = cv2.imread("Rohit_Sharma.png")
 input_image = img
 center = (80,80) # center (point) of the circle. It shoud be x-coordinate, y-coordinate
 radius = 55

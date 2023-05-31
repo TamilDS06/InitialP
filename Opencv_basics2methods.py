@@ -1,20 +1,20 @@
 #######opencv basic function#######
 import cv2 as cv
 # To read an image
-image_actual = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png", cv.IMREAD_COLOR)
-image_grey = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png", cv.IMREAD_GRAYSCALE)
-image_unchanged = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png", cv.IMREAD_UNCHANGED)
+image_actual = cv.imread("Rohit_Sharma.png", cv.IMREAD_COLOR)
+image_grey = cv.imread("Rohit_Sharma.png", cv.IMREAD_GRAYSCALE)
+image_unchanged = cv.imread("Rohit_Sharma.png", cv.IMREAD_UNCHANGED)
 cv.imshow("Actual", image_actual)
 cv.waitKey(1)
 cv.destroyAllWindows()
 
 # To write an image
-file_location_to_save = "C:\\AI_ML\\Heat_map\\Rohit_Sharma_grey.png"
+file_location_to_save = "Rohit_Sharma_grey.png"
 status = cv.imwrite(file_location_to_save, image_grey)
 print(status)
 
 # To access the pixel value of an image
-image = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png")
+image = cv.imread("Rohit_Sharma.png")
 pixel_value = image[100,100]
 print(pixel_value)
 
@@ -25,7 +25,7 @@ print(shape)
 print(size)
 
 # splitting an image
-image = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png",cv.IMREAD_COLOR)
+image = cv.imread("Rohit_Sharma.png",cv.IMREAD_COLOR)
 blue,green,red = cv.split(image) # It will seperate the image into channels
 b = image[:,:,0] # channels can be seperated through indexing too.
 g = image[:,:,1]
@@ -43,7 +43,7 @@ print(f'shape of the merged image {image.shape}')
 # cv.waitKey(0)
 
 # Resize the image
-image = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png",cv.IMREAD_COLOR)
+image = cv.imread("Rohit_Sharma.png",cv.IMREAD_COLOR)
 print(f"The actual size of the image is {image.shape}")
 cv.imshow("Resized",image)
 image_resized = cv.resize(image, (240,120), interpolation = cv.INTER_NEAREST)
@@ -53,7 +53,7 @@ print(f"Resize image shape is {image_resized.shape}")
 # cv.destroyAllWindows()
 
 # Rotate the image
-image = cv.imread("C:\\AI_ML\\Heat_map\\Rohit_Sharma.png",cv.IMREAD_COLOR)
+image = cv.imread("Rohit_Sharma.png",cv.IMREAD_COLOR)
 cv.imshow("Actual",image)
 image_rotated = cv.rotate(image, cv.ROTATE_90_COUNTERCLOCKWISE)
 # cv.imshow("Rotated",image_rotated)
@@ -61,7 +61,7 @@ image_rotated = cv.rotate(image, cv.ROTATE_90_COUNTERCLOCKWISE)
 # cv.destroyAllWindows()
 
 # Rotate the image in a certain angle
-img = cv.imread('dog.jpg',1)  
+img = cv.imread('Rohit_Sharma.png',1)  
 # get image height, width
 (h, w) = img.shape[:2]
 # calculate the center of the image

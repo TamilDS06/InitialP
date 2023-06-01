@@ -31,6 +31,7 @@ while wanna_continue:
             wanna_continue = input(f"You've lost the game.Your final score {score}. Do you want to continue? Type 'Y' or 'N'.")
             if wanna_continue.lower() == "y":
                 wanna_continue = True
+                # clear_screen()
                 break
             else:
                 wanna_continue = False

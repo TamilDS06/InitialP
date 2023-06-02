@@ -15,7 +15,9 @@ wanna_continue = True
 while wanna_continue:
     report = f"water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}"
     user_choice = input("What would you like?? (espresso/latte/cappuccino):")
-    if user_choice == "report":
+    if user_choice == "off":
+        break
+    elif user_choice == "report":
         print(report)
     elif user_choice == "espresso":
         if resources['water'] >= MENU["espresso"]["ingredients"]["water"] and \
@@ -70,6 +72,4 @@ while wanna_continue:
                 print("Sorry there is not enough water.")
             elif resources['milk'] < MENU["cappuccino"]["ingredients"]["milk"]:
                 print("Sorry there is not enough milk.")
-    elif user_choice == "off":
-        break
     continue

@@ -1,6 +1,9 @@
 from data import MENU, resources
 
 
+profit = 0
+
+
 def get_coins():
     print("Please enter the coins.")
     quarters = int(input("How many quarters?"))
@@ -13,7 +16,7 @@ def get_coins():
 
 wanna_continue = True
 while wanna_continue:
-    report = f"water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}"
+    report = f"water: {resources['water']}\nMilk: {resources['milk']}\nCoffee: {resources['coffee']}\nMoney: ${profit}"
     user_choice = input("What would you like?? (espresso/latte/cappuccino):")
     if user_choice == "off":
         break
@@ -27,6 +30,7 @@ while wanna_continue:
                 print("Here is your espresso. Enjoy!!!")
                 resources['water'] = resources['water'] - MENU["espresso"]["ingredients"]["water"]
                 resources['coffee'] = resources['coffee'] - MENU["espresso"]["ingredients"]["coffee"]
+                profit += round(total_coins_,2)
             else:
                 print("Sorry that's not enough money. Money refunded.")
         else:
@@ -44,6 +48,7 @@ while wanna_continue:
                 resources['water'] = resources['water'] - MENU["latte"]["ingredients"]["water"]
                 resources['coffee'] = resources['coffee'] - MENU["latte"]["ingredients"]["coffee"]
                 resources['milk'] = resources['milk'] - MENU["latte"]["ingredients"]["milk"]
+                profit += round(total_coins_,2)
             else:
                 print("Sorry that's not enough money. Money refunded.")
         else:
@@ -63,6 +68,7 @@ while wanna_continue:
                 resources['water'] = resources['water'] - MENU["cappuccino"]["ingredients"]["water"]
                 resources['coffee'] = resources['coffee'] - MENU["cappuccino"]["ingredients"]["coffee"]
                 resources['milk'] = resources['milk'] - MENU["cappuccino"]["ingredients"]["milk"]
+                profit += round(total_coins_,2)
             else:
                 print("Sorry that's not enough money. Money refunded.")
         else:

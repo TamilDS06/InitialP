@@ -19,6 +19,11 @@ color_list = [(233, 233, 232), (231, 233, 237), (236, 231, 233), (224, 233, 227)
               (179, 188, 212), (48, 74, 73), (147, 37, 35), (43, 62, 61)]
 timmy = Turtle()
 colormode(255)
+timmy.setheading(220)
+timmy.penup()
+timmy.forward(300)
+timmy.pendown()
+timmy.setheading(0)
 for i in range(10):
     for j in range(10):
         timmy.dot(20,choice(color_list))

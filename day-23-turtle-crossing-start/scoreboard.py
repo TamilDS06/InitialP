@@ -19,4 +19,5 @@ class Scoreboard:
         self.score.write(f"Level :{self.level}", align='center', font=FONT)
 
     def clear_score(self):
-        self.score.clear()
+        pass
+        # self.score.clear()

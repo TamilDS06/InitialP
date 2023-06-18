@@ -24,6 +24,7 @@ while game_is_on:
     carmanager.move_cars()
     if carmanager.detect_collision_with_car(player_):
         game_is_on = False
+        score.clear_score()
     if player_.finish():
         carmanager.levelup()
         score.update_score()

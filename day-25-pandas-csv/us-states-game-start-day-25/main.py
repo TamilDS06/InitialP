@@ -16,9 +16,10 @@ while len(guessed_states) < 50:
     user_answer = screen.textinput(title=f'{score}/{len(data["state"])}Guess the name.',
                                    prompt="What is another city's name?").title()
     if user_answer == "Exit":
-        remaining_states_data = {
-            'remaining_states': states
-        }
+        # remaining_states_data = {
+        #     'remaining_states': states
+        # }
+        remaining_states_data = [state for state in states if state not in guessed_states]
         remaining_states_data = pd.DataFrame(remaining_states_data)
         remaining_states_data.to_csv('remaining_states_data.csv')
         break

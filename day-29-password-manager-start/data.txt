@@ -1,0 +1,2 @@
+.!entry | .!entry2 | .!entry3
+.

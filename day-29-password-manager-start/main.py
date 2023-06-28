@@ -71,8 +71,6 @@ def find_password():
         try:
             with open('data.json', mode='r') as file_write:
                 # Read the json file
-                email = "Not found"
-                password = "Not found"
                 data = json.load(file_write)
                 # if website in data:
                 #     email = data[website]['email']

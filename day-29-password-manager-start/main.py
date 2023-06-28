@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import json  # https://docs.python.org/3/library/json.html
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -32,16 +33,34 @@ def save_password():
     website = input_website.get()
     email = input_email.get()
     password_ = input_password.get()
+    data_dict = {
+        website: {
+            "email": email,
+            "password": password_
+        }
+    }
     if len(password_) == 0 or len(password_) == 0:
         messagebox.showwarning(title="Warning", message="Don't let any field empty:")
     else:
         is_ok = messagebox.askokcancel(title=website, message=f"There are the details:\nWebsite :{website}\nEmail :"
                                                               f"{email}\nPassword :{password_}")
         if is_ok:
-            with open('data.txt', mode='a') as file_write:
-                file_write.write(f'{website} | {email} | {password_}\n')
-            input_website.delete(0, END)
-            input_password.delete(0, END)
+            try:
+                with open('data.json', mode='r') as file_write:
+                    # Read the json file
+                    data = json.load(file_write)
+            except FileNotFoundError:
+                with open('data.json', mode='w') as file_write:
+                    json.dump(data_dict, file_write, indent=4)
+            else:
+                # convert json to python dict update the data
+                data.update(data_dict)
+                # Saving the updated data in json file
+                with open('data.json', mode='w') as file_write:
+                    json.dump(data, file_write, indent=4)
+            finally:
+                input_website.delete(0, END)
+                input_password.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -51,7 +70,7 @@ window.config(padx=50, pady=50)
 # window.minsize(width=450, height=300)  # https://tkdocs.com/tutorial/canvas.html
 
 canvas = Canvas(width=200, height=200, highlightthickness=0)
-tomato_image = PhotoImage(file='logo.png')
+tomato_image = PhotoImage(file='C:\\My_Folder\\Logics_in_python\\day-29-password-manager-start\\logo.png')
 canvas.create_image(100, 100, image=tomato_image)
 canvas.grid(column=1, row=0)
 

@@ -30,7 +30,8 @@ print(words_data)
 
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 
-while True:
+
+def generate_nato():
     try:
         user_input = input("Enter a name: ").upper()
         result_dict = {}
@@ -38,8 +39,12 @@ while True:
             if letter in words_data.keys():
                 result_dict[letter] = words_data[letter]
         output = [words_data[letter] for letter in user_input]
-        print(result_dict)
-        print(output)
-        break
     except KeyError:
         print("There is only letters in alphabets.")
+        generate_nato()
+    else:
+        print(result_dict)
+        print(output)
+
+
+generate_nato()

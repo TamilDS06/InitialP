@@ -76,14 +76,17 @@ date = datetime.now()
 current_month = date.month
 current_day = date.day
 current_hour = date.hour
+
 # Get data from csv
 birthday_data = pd.read_csv('birthdays.csv')
 print(birthday_data)
 letter_template_list = ['./letter_templates/letter_1.txt', './letter_templates/letter_2.txt',
                         './letter_templates/letter_3.txt', ]
+
 # Filter with current month and day
 current_day_data = birthday_data[birthday_data['month'] == current_month]
 current_day_data = current_day_data[current_day_data['day'] == current_day]
+
 # Iterate through rows
 for index, row in current_day_data.iterrows():
     if current_hour == 8:

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Colors in Image</title>
+</head>
+<body>
+    <h1>Top Colors in Image</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Analyze</button>
+    </form>
+    <h2>Top 10 Colors in the Image:</h2>
+    <ul id="topColors"></ul>
+    <script>
+        const form = document.querySelector("form");
+        const topColorsList = document.getElementById("topColors");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch("/", {
+                method: "POST",
+                body: formData,
+            });
+
+            const topColors = await response.json();
+            topColorsList.innerHTML = topColors.map(color => `<li>${color[0]}: ${color[1]}</li>`).join("");
+        });
+    </script>
+</body>
+</html>

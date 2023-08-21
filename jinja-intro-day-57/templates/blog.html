@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Blogs</title>
+    </head>
+    <body>
+        {% for blog_post in all_blogs %}
+            {% if blog_post['id'] == 2 %}
+                <h1>{{ blog_post['title'] }}</h1>
+            {% else %}
+                {{ pass }}
+            {% endif %}
+
+        {% endfor %}
+    </body>
+    <footer align="center">
+        <p>@CopyRight MTSweb {{ year }}</p>
+    </footer>
+</html>

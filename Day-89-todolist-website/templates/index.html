@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Add task page</title>
+</head>
+<body>
+    {% if tasks %}
+            <p>Name start_date end_date status</p>
+        {% for task in all_tasks: %}
+            <p>{{ task.name }} {{ task.start_date }} {{ task.end_date }} {{ task.status }}</p>
+        {% endfor %}
+    {% endif %}
+    <a href="{{ url_for('add_task_') }}">add_task</a><br>
+    <a href="{{ url_for('delete') }}">Delete</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+    {% block styling %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+</head>
+<body>
+	{% block content %}{% endblock %}
+    {{ bootstrap.load_js() }}
+</body>
+</html>

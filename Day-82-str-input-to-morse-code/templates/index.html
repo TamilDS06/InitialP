@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>My First Form</title>
+    </head>
+    <body>
+        <form action="{{ url_for('home') }}" method="post">
+            <label for="string">string</label><br>
+            <input type="text" id="string" name="string" placeholder="Enter a string"><br>
+            <input type="submit" value="Ok">
+        </form>
+        {% if output_string and input_string %}
+            <h2>Your morsecode for {{input_string }} is {{ output_string }}</h2>
+        {% endif %}
+    </body>
+</html>

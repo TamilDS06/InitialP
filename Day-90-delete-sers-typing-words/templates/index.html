@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Delete App</title>
+</head>
+<body>
+    <h1>Auto Delete App</h1>
+    <p>This app will delete your typing if you stop typing for more than 5 seconds continuously.</p>
+    <p>Try typing in the text box below:</p>
+    <textarea id="userInput" rows="5" cols="50"></textarea>
+    <script>
+        var lastText = "";
+
+        function updateInput() {
+            var userInput = document.getElementById("userInput").value;
+            if (userInput !== lastText) {
+                lastText = userInput;
+                fetch("/update_user_input", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ "user_input": userInput })
+                });
+            }
+            setTimeout(updateInput, 1000);
+        }
+
+        function checkTyping() {
+            fetch("/get_user_input")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("userInput").value = data.user_input;
+                });
+            setTimeout(checkTyping, 1000);
+        }
+
+        updateInput();
+        checkTyping();
+    </script>
+</body>
+</html>
